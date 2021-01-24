@@ -18,3 +18,11 @@
   .list-group-item:hover {
     background-color: gainsboro;
   }
+
+  .card {
+    z-index: 555;
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+  }

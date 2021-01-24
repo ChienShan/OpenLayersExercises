@@ -11,13 +11,30 @@
 
 <body>
   <div id="map" class="map"></div>
-
+  <div class="card">
+    <div class="card-header">
+      編輯
+    </div>
+    <div class="card-body">
+      <div class="pb-3">
+        <h5 class="card-title">線類型</h5>
+        <select id="lineStyle" class="form-control">
+          <option value="0">實線</option>
+          <option value="1">虛線</option>
+          <option value="2">橫線</option>
+          <option value="3">圓點</option>
+          <option value="4">雙虛</option>
+          <option value="5">一實一虛</option>
+        </select>
+      </div>
+    </div>
+  </div>
   <!-- Popup -->
   <div id="popup">
     <div class="menu">
       <ul class="list-group">
-        <li class="list-group-item">編輯</li>
-        <li class="list-group-item">移到下一層</li>
+        <li class="list-group-item" onclick="StartToDraw()">繪圖</li>
+        <li class="list-group-item" onclick="CancelToDraw()">取消繪圖</li>
       </ul>
     </div>
   </div>
