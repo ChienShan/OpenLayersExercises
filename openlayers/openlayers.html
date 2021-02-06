@@ -17,6 +17,20 @@
     </div>
     <div class="card-body">
       <div class="pb-3">
+        <h5 class="card-title">繪製類型</h5>
+        <div>
+          <button id="lineBtn" type="button" class="btn btn-outline-light"
+            onclick="ChangeFeatureOfDrawing('LineString')">
+            <img
+              src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggc3R5bGU9ImZpbGw6IzYwN0Q4QjsiIGQ9Ik01My4zMzMsNDY5LjMzM2MtNS44OTEsMC4wMTEtMTAuNjc1LTQuNzU3LTEwLjY4Ni0xMC42NDhjLTAuMDA1LTIuODQsMS4xMjMtNS41NjUsMy4xMzQtNy41NzENCglMNDUxLjExNSw0NS43ODFjNC4wOTMtNC4yMzcsMTAuODQ1LTQuMzU0LDE1LjA4My0wLjI2MnM0LjM1NCwxMC44NDUsMC4yNjIsMTUuMDgzYy0wLjA4NiwwLjA4OS0wLjE3MywwLjE3Ni0wLjI2MiwwLjI2Mg0KCUw2MC44NjQsNDY2LjE5N0M1OC44NjgsNDY4LjE5OSw1Ni4xNiw0NjkuMzI3LDUzLjMzMyw0NjkuMzMzeiIvPg0KPGc+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik0xMC42NjcsNDQ4aDQyLjY2N0M1OS4yMjQsNDQ4LDY0LDQ1Mi43NzYsNjQsNDU4LjY2N3Y0Mi42NjdDNjQsNTA3LjIyNCw1OS4yMjQsNTEyLDUzLjMzMyw1MTINCgkJSDEwLjY2N0M0Ljc3Niw1MTIsMCw1MDcuMjI0LDAsNTAxLjMzM3YtNDIuNjY3QzAsNDUyLjc3Niw0Ljc3Niw0NDgsMTAuNjY3LDQ0OHoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNDU1QTY0OyIgZD0iTTQ1OC42NjcsMGg0Mi42NjdDNTA3LjIyNCwwLDUxMiw0Ljc3Niw1MTIsMTAuNjY3djQyLjY2N0M1MTIsNTkuMjI0LDUwNy4yMjQsNjQsNTAxLjMzMyw2NGgtNDIuNjY3DQoJCUM0NTIuNzc2LDY0LDQ0OCw1OS4yMjQsNDQ4LDUzLjMzM1YxMC42NjdDNDQ4LDQuNzc2LDQ1Mi43NzYsMCw0NTguNjY3LDB6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" />
+          </button>
+          <button id="faceBtn" type="button" class="btn btn-outline-light" onclick="ChangeFeatureOfDrawing('Polygon')">
+            <img
+              src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzYwN0Q4QjsiIGQ9Ik0zMiw0NjkuMzMzYy01Ljg5MSwwLTEwLjY2Ny00Ljc3Ni0xMC42NjctMTAuNjY3VjUzLjMzM2MwLTUuODkxLDQuNzc2LTEwLjY2NywxMC42NjctMTAuNjY3DQoJCXMxMC42NjcsNC43NzYsMTAuNjY3LDEwLjY2N3Y0MDUuMzMzQzQyLjY2Nyw0NjQuNTU4LDM3Ljg5MSw0NjkuMzMzLDMyLDQ2OS4zMzN6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzYwN0Q4QjsiIGQ9Ik00NTguNjY3LDQyLjY2N0g1My4zMzNjLTUuODkxLDAtMTAuNjY3LTQuNzc2LTEwLjY2Ny0xMC42NjdzNC43NzYtMTAuNjY3LDEwLjY2Ny0xMC42NjdoNDA1LjMzMw0KCQljNS44OTEsMCwxMC42NjcsNC43NzYsMTAuNjY3LDEwLjY2N1M0NjQuNTU4LDQyLjY2Nyw0NTguNjY3LDQyLjY2N3oiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNjA3RDhCOyIgZD0iTTQ4MCw0NjkuMzMzYy01Ljg5MSwwLTEwLjY2Ny00Ljc3Ni0xMC42NjctMTAuNjY3VjUzLjMzM2MwLTUuODkxLDQuNzc2LTEwLjY2NywxMC42NjctMTAuNjY3DQoJCWM1Ljg5MSwwLDEwLjY2Nyw0Ljc3NiwxMC42NjcsMTAuNjY3djQwNS4zMzNDNDkwLjY2Nyw0NjQuNTU4LDQ4NS44OTEsNDY5LjMzMyw0ODAsNDY5LjMzM3oiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNjA3RDhCOyIgZD0iTTQ1OC42NjcsNDkwLjY2N0g1My4zMzNjLTUuODkxLDAtMTAuNjY3LTQuNzc2LTEwLjY2Ny0xMC42NjdjMC01Ljg5MSw0Ljc3Ni0xMC42NjcsMTAuNjY3LTEwLjY2Nw0KCQloNDA1LjMzM2M1Ljg5MSwwLDEwLjY2Nyw0Ljc3NiwxMC42NjcsMTAuNjY3QzQ2OS4zMzMsNDg1Ljg5MSw0NjQuNTU4LDQ5MC42NjcsNDU4LjY2Nyw0OTAuNjY3eiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik01My4zMzMsNjRIMTAuNjY3QzQuNzc2LDY0LDAsNTkuMjI0LDAsNTMuMzMzVjEwLjY2N0MwLDQuNzc2LDQuNzc2LDAsMTAuNjY3LDBoNDIuNjY3DQoJCUM1OS4yMjQsMCw2NCw0Ljc3Niw2NCwxMC42Njd2NDIuNjY3QzY0LDU5LjIyNCw1OS4yMjQsNjQsNTMuMzMzLDY0eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiM0NTVBNjQ7IiBkPSJNNTAxLjMzMyw2NGgtNDIuNjY3QzQ1Mi43NzYsNjQsNDQ4LDU5LjIyNCw0NDgsNTMuMzMzVjEwLjY2N0M0NDgsNC43NzYsNDUyLjc3NiwwLDQ1OC42NjcsMGg0Mi42NjcNCgkJQzUwNy4yMjQsMCw1MTIsNC43NzYsNTEyLDEwLjY2N3Y0Mi42NjdDNTEyLDU5LjIyNCw1MDcuMjI0LDY0LDUwMS4zMzMsNjR6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik01My4zMzMsNTEySDEwLjY2N0M0Ljc3Niw1MTIsMCw1MDcuMjI0LDAsNTAxLjMzM3YtNDIuNjY3QzAsNDUyLjc3Niw0Ljc3Niw0NDgsMTAuNjY3LDQ0OGg0Mi42NjcNCgkJQzU5LjIyNCw0NDgsNjQsNDUyLjc3Niw2NCw0NTguNjY3djQyLjY2N0M2NCw1MDcuMjI0LDU5LjIyNCw1MTIsNTMuMzMzLDUxMnoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNDU1QTY0OyIgZD0iTTUwMS4zMzMsNTEyaC00Mi42NjdjLTUuODkxLDAtMTAuNjY3LTQuNzc2LTEwLjY2Ny0xMC42Njd2LTQyLjY2Nw0KCQljMC01Ljg5MSw0Ljc3Ni0xMC42NjcsMTAuNjY3LTEwLjY2N2g0Mi42NjdjNS44OTEsMCwxMC42NjcsNC43NzYsMTAuNjY3LDEwLjY2N3Y0Mi42NjdDNTEyLDUwNy4yMjQsNTA3LjIyNCw1MTIsNTAxLjMzMyw1MTJ6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" />
+          </button>
+        </div>
+      </div>
+      <div class="pb-3">
         <h5 class="card-title">線類型</h5>
         <select id="lineStyle" class="form-control">
           <option value="0">實線</option>
@@ -37,7 +51,6 @@
           <option value="4">斜線</option>
           <option value="5">網格</option>
           <option value="6">面上有圖示</option>
-          <option value="7">面上有文字</option>
         </select>
       </div>
     </div>
@@ -58,7 +71,26 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.1/math.min.js"></script>
   <script src="./lineStyle.js"></script>
+  <script src="./faceStyle.js"></script>
   <script>
+    var draw = new ol.interaction.Draw({
+        source: lineStrokeSource,
+        type: featureOfDrawing,
+      }),
+      snap = new ol.interaction.Snap({
+        source: lineStrokeSource
+      });
+
+    var typeOfGeometry = {
+      point: 'Point',
+      line: 'LineString',
+      face: 'Polygon'
+    }
+    var featureOfDrawing = typeOfGeometry.line;
+    /**
+         * 面-面狀資料內可放置圖示​
+        */
+        var faceImageLayer, faceImageSource, faceImageUrl = 'https://img.icons8.com/plasticine/2x/user-location.png';
     // Popup showing the position the user clicked
     var popup = new ol.Overlay({
       element: document.getElementById('popup'),
@@ -78,7 +110,8 @@
       target: 'map',
       layers: [
         tile,
-        lineStrokeVectorLayer
+        lineStrokeVectorLayer,
+        faceVectorLayer
       ],
       view: view
     });
@@ -98,22 +131,68 @@
       popup.setPosition(undefined);
     })
 
-    var draw, snap;
+    function ChangeFeatureOfDrawing(feature) {
+      featureOfDrawing = feature;
+      RemoveInteractions();
+      addInteractions();
+    }
+
     function addInteractions() {
-      draw = new ol.interaction.Draw({
-        source: lineStrokeSource,
-        type: 'LineString',
-      });
-      snap = new ol.interaction.Snap({
-        source: lineStrokeSource
-      });
+      console.log('featureOfDrawing', featureOfDrawing);
+      switch (featureOfDrawing) {
+        case typeOfGeometry.line:
+          draw = new ol.interaction.Draw({
+            source: lineStrokeSource,
+            type: featureOfDrawing,
+          });
+          snap = new ol.interaction.Snap({
+            source: lineStrokeSource
+          });
+          break;
+        case typeOfGeometry.face:
+          draw = new ol.interaction.Draw({
+            source: faceSource,
+            type: featureOfDrawing,
+          });
+          snap = new ol.interaction.Snap({
+            source: lineStrokeSource
+          });
+          break;
+        default:
+          draw = new ol.interaction.Draw({
+            source: lineStrokeSource,
+            type: featureOfDrawing,
+          });
+          snap = new ol.interaction.Snap({
+            source: lineStrokeSource
+          });
+          break;
+      }
+
       map.addInteraction(draw);
       map.addInteraction(snap);
+      draw.on('drawend', (evt) => {
+        //面上顯示圖示
+        if (featureOfDrawing === typeOfGeometry.face && parseInt(faceStyle.value) == 6) {
+          let extent = evt.feature.getGeometry().getExtent();
+          let center = ol.extent.getCenter(extent);
+
+          // console.log('center', center);
+          faceImageSource = new ol.source.ImageStatic({
+            url: faceImageUrl,
+            imageExtent: [center[0] - 150, center[1] - 150, center[0] + 150, center[1] + 150],
+          })
+          faceImageLayer = new ol.layer.Image({
+            extent: extent,
+            source: faceImageSource
+          })
+          map.addLayer(faceImageLayer);
+        }
+      })
     }
 
     function openContextMenu(coordinate) {
       var element = popup.getElement();
-      //var hdms = toStringHDMS(toLonLat(coordinate));
 
       $(element).popover('dispose');
       popup.setPosition(coordinate);
@@ -121,20 +200,30 @@
         container: element,
         placement: 'right',
         animation: false,
-        html: true,
-        //content: '<p>The location you clicked was:</p><code>' + hdms + '</code>',
+        html: true
       });
       $(element).popover('show');
     }
 
+    /**
+     * 開始繪圖
+     */
     function StartToDraw() {
       addInteractions();
       popup.setPosition(undefined);
     }
 
+    /**
+     * 停止繪圖
+     */
     function CancelToDraw() {
-      map.removeInteraction(draw);
+      RemoveInteractions();
       popup.setPosition(undefined);
+    }
+
+    function RemoveInteractions() {
+      map.removeInteraction(draw);
+      map.removeInteraction(snap);
     }
   </script>
 </body>
