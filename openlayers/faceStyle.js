@@ -179,7 +179,7 @@ var faceVectorLayer = new ol.layer.Vector({
  */
 faceStyle.onchange = function () {
     switch (parseInt(faceStyle.value)) {
-        case 0: //一般
+        case 0: //一般 origin
             style = new ol.style.Style({
                 //面顏色設定
                 fill: new ol.style.Fill({
@@ -193,7 +193,7 @@ faceStyle.onchange = function () {
             });
             faceVectorLayer.setStyle(style);
             break;
-        case 1: //邊框
+        case 1: //邊框 border
             style = new ol.style.Style({
                 //面邊框
                 stroke: new ol.style.Stroke({
@@ -203,7 +203,7 @@ faceStyle.onchange = function () {
             });
             faceVectorLayer.setStyle(style);
             break;
-        case 2: //無邊框
+        case 2: //無邊框 without border
             style = new ol.style.Style({
                 //面顏色設定
                 fill: new ol.style.Fill({
@@ -212,7 +212,7 @@ faceStyle.onchange = function () {
             });
             faceVectorLayer.setStyle(style);
             break;
-        case 3: //填滿顏色
+        case 3: //填滿顏色 filling color
             faceFill.setColor('#ffcc33');
             style = new ol.style.Style({
                 //面顏色設定
@@ -225,13 +225,13 @@ faceStyle.onchange = function () {
             });
             faceVectorLayer.setStyle(style);
             break;
-        case 4: //斜線
+        case 4: //斜線 filling slash
             faceVectorLayer.setStyle(getStackedStyle);
             break;
-        case 5: //網格
+        case 5: //網格 filling grid
             faceVectorLayer.setStyle(getStackedStyle);
             break;
-        case 6: //面上有圖示
+        case 6: //面上有圖示 a image on the face
             style = [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'black',

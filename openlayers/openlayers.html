@@ -73,6 +73,10 @@
   <script src="./lineStyle.js"></script>
   <script src="./faceStyle.js"></script>
   <script>
+    /**
+     * 與地圖互動功能 
+     * the type of interaction with map
+     */
     var draw = new ol.interaction.Draw({
         source: lineStrokeSource,
         type: featureOfDrawing,
@@ -81,31 +85,57 @@
         source: lineStrokeSource
       });
 
+    /**
+     * 繪圖幾何類型 
+     * the type of geometry of drawing
+     */
     var typeOfGeometry = {
       point: 'Point',
       line: 'LineString',
       face: 'Polygon'
     }
-    var featureOfDrawing = typeOfGeometry.line;
+
     /**
-         * 面-面狀資料內可放置圖示​
-        */
-        var faceImageLayer, faceImageSource, faceImageUrl = 'https://img.icons8.com/plasticine/2x/user-location.png';
-    // Popup showing the position the user clicked
+     * 預設繪圖類型 
+     * the default type of geometry of drawing
+     */
+    var featureOfDrawing = typeOfGeometry.line;
+
+    /**
+     * 面狀內圖示​ 
+     * the image with face
+     */
+    var faceImageLayer, faceImageSource, faceImageUrl = 'https://img.icons8.com/plasticine/2x/user-location.png';
+
+    /**
+     * 右鍵選單初始化
+     * initializing the context menu
+    */
     var popup = new ol.Overlay({
       element: document.getElementById('popup'),
     });
 
+    /**
+     * 地圖圖層
+     * the layer of map
+    */
     var tile = new ol.layer.Tile({
       source: new ol.source.OSM()
     });
 
+    /**
+     * 地圖初始位置
+     * the original position of map
+    */
     var view = new ol.View({
       center: ol.proj.fromLonLat([37.41, 8.82]),
       zoom: 4
     });
 
-    //Initial the map
+    /**
+     * 地圖初始化
+     * Initializing the map
+    */
     var map = new ol.Map({
       target: 'map',
       layers: [
@@ -116,29 +146,45 @@
       view: view
     });
 
-    //Add the popup on the map
+    /**
+     * 右鍵選單加入地圖
+     * Add the popup on the map
+    */
     map.addOverlay(popup);
 
-    //Hide the default menu and show the context menu
+    /**
+     * 點擊滑鼠右鍵開啟選單
+     * Hide the default menu and show the context menu
+    */
     map.getViewport().addEventListener('contextmenu', function (e) {
       e.preventDefault();
       let coordinate = map.getEventCoordinate(e);
-      openContextMenu(coordinate);
+      OpenContextMenu(coordinate);
     });
 
-    //Close the context menu
+    /**
+     * 點擊滑鼠左鍵關閉選單
+     * Close the context menu
+    */
     map.on('click', function () {
       popup.setPosition(undefined);
     })
 
+    /**
+     * 變更繪圖類型
+     * Change the type of geomery of drawing
+    */
     function ChangeFeatureOfDrawing(feature) {
       featureOfDrawing = feature;
       RemoveInteractions();
-      addInteractions();
+      AddInteractions();
     }
 
-    function addInteractions() {
-      console.log('featureOfDrawing', featureOfDrawing);
+    /**
+     * 開始與地圖互動
+     * Start to interacte with map
+    */
+    function AddInteractions() {
       switch (featureOfDrawing) {
         case typeOfGeometry.line:
           draw = new ol.interaction.Draw({
@@ -171,13 +217,12 @@
 
       map.addInteraction(draw);
       map.addInteraction(snap);
+      //#region 面上顯示圖示 add a image on the face
       draw.on('drawend', (evt) => {
-        //面上顯示圖示
         if (featureOfDrawing === typeOfGeometry.face && parseInt(faceStyle.value) == 6) {
           let extent = evt.feature.getGeometry().getExtent();
           let center = ol.extent.getCenter(extent);
 
-          // console.log('center', center);
           faceImageSource = new ol.source.ImageStatic({
             url: faceImageUrl,
             imageExtent: [center[0] - 150, center[1] - 150, center[0] + 150, center[1] + 150],
@@ -189,9 +234,14 @@
           map.addLayer(faceImageLayer);
         }
       })
+      //#endregion
     }
 
-    function openContextMenu(coordinate) {
+    /**
+     * 開啟右鍵選單
+     * show the context menu on the map
+    */
+    function OpenContextMenu(coordinate) {
       var element = popup.getElement();
 
       $(element).popover('dispose');
@@ -209,7 +259,7 @@
      * 開始繪圖
      */
     function StartToDraw() {
-      addInteractions();
+      AddInteractions();
       popup.setPosition(undefined);
     }
 
