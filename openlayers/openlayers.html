@@ -30,7 +30,7 @@
           </button>
         </div>
       </div>
-      <div class="pb-3">
+      <div class="pb-3" id="lineSelect" style="display: block;">
         <h5 class="card-title">線類型</h5>
         <select id="lineStyle" class="form-control">
           <option value="0">實線</option>
@@ -41,7 +41,7 @@
           <option value="5">一實一虛</option>
         </select>
       </div>
-      <div class="pb-3" id="faceSelect">
+      <div class="pb-3" id="faceSelect"  style="display: none;">
         <h5 class="card-title">面類型</h5>
         <select id="faceStyle" class="form-control">
           <option value="0">一般</option>
@@ -110,7 +110,7 @@
     /**
      * 右鍵選單初始化
      * initializing the context menu
-    */
+     */
     var popup = new ol.Overlay({
       element: document.getElementById('popup'),
     });
@@ -118,7 +118,7 @@
     /**
      * 地圖圖層
      * the layer of map
-    */
+     */
     var tile = new ol.layer.Tile({
       source: new ol.source.OSM()
     });
@@ -126,7 +126,7 @@
     /**
      * 地圖初始位置
      * the original position of map
-    */
+     */
     var view = new ol.View({
       center: ol.proj.fromLonLat([37.41, 8.82]),
       zoom: 4
@@ -135,7 +135,7 @@
     /**
      * 地圖初始化
      * Initializing the map
-    */
+     */
     var map = new ol.Map({
       target: 'map',
       layers: [
@@ -149,13 +149,13 @@
     /**
      * 右鍵選單加入地圖
      * Add the popup on the map
-    */
+     */
     map.addOverlay(popup);
 
     /**
      * 點擊滑鼠右鍵開啟選單
      * Hide the default menu and show the context menu
-    */
+     */
     map.getViewport().addEventListener('contextmenu', function (e) {
       e.preventDefault();
       let coordinate = map.getEventCoordinate(e);
@@ -165,7 +165,7 @@
     /**
      * 點擊滑鼠左鍵關閉選單
      * Close the context menu
-    */
+     */
     map.on('click', function () {
       popup.setPosition(undefined);
     })
@@ -173,17 +173,44 @@
     /**
      * 變更繪圖類型
      * Change the type of geomery of drawing
-    */
+     */
     function ChangeFeatureOfDrawing(feature) {
       featureOfDrawing = feature;
+      SwiftThePanel();
       RemoveInteractions();
       AddInteractions();
     }
 
     /**
+     * 切換編輯選單資訊
+     * Change the editing panel
+    */
+    function SwiftThePanel() {
+      let lineSelection = document.getElementById('lineSelect');
+      let faceSelection = document.getElementById('faceSelect');
+      let displayStatus = {
+        show: 'block',
+        close: 'none'
+      }
+      switch (featureOfDrawing) {
+        case typeOfGeometry.line:
+          lineSelection.style.display = displayStatus.show;
+          faceSelection.style.display = displayStatus.close;
+          break;
+        case typeOfGeometry.face:
+          lineSelection.style.display = displayStatus.close;
+          faceSelection.style.display = displayStatus.show;
+          break;
+        default:
+          lineSelection.style.display = displayStatus.show;
+          faceSelection.style.display = displayStatus.close;
+          break;
+      }
+    }
+    /**
      * 開始與地圖互動
      * Start to interacte with map
-    */
+     */
     function AddInteractions() {
       switch (featureOfDrawing) {
         case typeOfGeometry.line:
@@ -240,7 +267,7 @@
     /**
      * 開啟右鍵選單
      * show the context menu on the map
-    */
+     */
     function OpenContextMenu(coordinate) {
       var element = popup.getElement();
 
