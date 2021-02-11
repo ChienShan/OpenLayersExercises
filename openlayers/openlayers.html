@@ -19,12 +19,13 @@
       <div class="pb-3">
         <h5 class="card-title">繪製類型</h5>
         <div>
-          <button id="lineBtn" type="button" class="btn btn-outline-light"
+          <button id="lineBtn" type="button" class="typeBtn btn btn-outline-light"
             onclick="ChangeFeatureOfDrawing('LineString')">
             <img
               src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggc3R5bGU9ImZpbGw6IzYwN0Q4QjsiIGQ9Ik01My4zMzMsNDY5LjMzM2MtNS44OTEsMC4wMTEtMTAuNjc1LTQuNzU3LTEwLjY4Ni0xMC42NDhjLTAuMDA1LTIuODQsMS4xMjMtNS41NjUsMy4xMzQtNy41NzENCglMNDUxLjExNSw0NS43ODFjNC4wOTMtNC4yMzcsMTAuODQ1LTQuMzU0LDE1LjA4My0wLjI2MnM0LjM1NCwxMC44NDUsMC4yNjIsMTUuMDgzYy0wLjA4NiwwLjA4OS0wLjE3MywwLjE3Ni0wLjI2MiwwLjI2Mg0KCUw2MC44NjQsNDY2LjE5N0M1OC44NjgsNDY4LjE5OSw1Ni4xNiw0NjkuMzI3LDUzLjMzMyw0NjkuMzMzeiIvPg0KPGc+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik0xMC42NjcsNDQ4aDQyLjY2N0M1OS4yMjQsNDQ4LDY0LDQ1Mi43NzYsNjQsNDU4LjY2N3Y0Mi42NjdDNjQsNTA3LjIyNCw1OS4yMjQsNTEyLDUzLjMzMyw1MTINCgkJSDEwLjY2N0M0Ljc3Niw1MTIsMCw1MDcuMjI0LDAsNTAxLjMzM3YtNDIuNjY3QzAsNDUyLjc3Niw0Ljc3Niw0NDgsMTAuNjY3LDQ0OHoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNDU1QTY0OyIgZD0iTTQ1OC42NjcsMGg0Mi42NjdDNTA3LjIyNCwwLDUxMiw0Ljc3Niw1MTIsMTAuNjY3djQyLjY2N0M1MTIsNTkuMjI0LDUwNy4yMjQsNjQsNTAxLjMzMyw2NGgtNDIuNjY3DQoJCUM0NTIuNzc2LDY0LDQ0OCw1OS4yMjQsNDQ4LDUzLjMzM1YxMC42NjdDNDQ4LDQuNzc2LDQ1Mi43NzYsMCw0NTguNjY3LDB6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" />
           </button>
-          <button id="faceBtn" type="button" class="btn btn-outline-light" onclick="ChangeFeatureOfDrawing('Polygon')">
+          <button id="faceBtn" type="button" class="typeBtn btn btn-outline-light"
+            onclick="ChangeFeatureOfDrawing('Polygon')">
             <img
               src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzYwN0Q4QjsiIGQ9Ik0zMiw0NjkuMzMzYy01Ljg5MSwwLTEwLjY2Ny00Ljc3Ni0xMC42NjctMTAuNjY3VjUzLjMzM2MwLTUuODkxLDQuNzc2LTEwLjY2NywxMC42NjctMTAuNjY3DQoJCXMxMC42NjcsNC43NzYsMTAuNjY3LDEwLjY2N3Y0MDUuMzMzQzQyLjY2Nyw0NjQuNTU4LDM3Ljg5MSw0NjkuMzMzLDMyLDQ2OS4zMzN6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzYwN0Q4QjsiIGQ9Ik00NTguNjY3LDQyLjY2N0g1My4zMzNjLTUuODkxLDAtMTAuNjY3LTQuNzc2LTEwLjY2Ny0xMC42NjdzNC43NzYtMTAuNjY3LDEwLjY2Ny0xMC42NjdoNDA1LjMzMw0KCQljNS44OTEsMCwxMC42NjcsNC43NzYsMTAuNjY3LDEwLjY2N1M0NjQuNTU4LDQyLjY2Nyw0NTguNjY3LDQyLjY2N3oiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNjA3RDhCOyIgZD0iTTQ4MCw0NjkuMzMzYy01Ljg5MSwwLTEwLjY2Ny00Ljc3Ni0xMC42NjctMTAuNjY3VjUzLjMzM2MwLTUuODkxLDQuNzc2LTEwLjY2NywxMC42NjctMTAuNjY3DQoJCWM1Ljg5MSwwLDEwLjY2Nyw0Ljc3NiwxMC42NjcsMTAuNjY3djQwNS4zMzNDNDkwLjY2Nyw0NjQuNTU4LDQ4NS44OTEsNDY5LjMzMyw0ODAsNDY5LjMzM3oiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNjA3RDhCOyIgZD0iTTQ1OC42NjcsNDkwLjY2N0g1My4zMzNjLTUuODkxLDAtMTAuNjY3LTQuNzc2LTEwLjY2Ny0xMC42NjdjMC01Ljg5MSw0Ljc3Ni0xMC42NjcsMTAuNjY3LTEwLjY2Nw0KCQloNDA1LjMzM2M1Ljg5MSwwLDEwLjY2Nyw0Ljc3NiwxMC42NjcsMTAuNjY3QzQ2OS4zMzMsNDg1Ljg5MSw0NjQuNTU4LDQ5MC42NjcsNDU4LjY2Nyw0OTAuNjY3eiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik01My4zMzMsNjRIMTAuNjY3QzQuNzc2LDY0LDAsNTkuMjI0LDAsNTMuMzMzVjEwLjY2N0MwLDQuNzc2LDQuNzc2LDAsMTAuNjY3LDBoNDIuNjY3DQoJCUM1OS4yMjQsMCw2NCw0Ljc3Niw2NCwxMC42Njd2NDIuNjY3QzY0LDU5LjIyNCw1OS4yMjQsNjQsNTMuMzMzLDY0eiIvPg0KCTxwYXRoIHN0eWxlPSJmaWxsOiM0NTVBNjQ7IiBkPSJNNTAxLjMzMyw2NGgtNDIuNjY3QzQ1Mi43NzYsNjQsNDQ4LDU5LjIyNCw0NDgsNTMuMzMzVjEwLjY2N0M0NDgsNC43NzYsNDUyLjc3NiwwLDQ1OC42NjcsMGg0Mi42NjcNCgkJQzUwNy4yMjQsMCw1MTIsNC43NzYsNTEyLDEwLjY2N3Y0Mi42NjdDNTEyLDU5LjIyNCw1MDcuMjI0LDY0LDUwMS4zMzMsNjR6Ii8+DQoJPHBhdGggc3R5bGU9ImZpbGw6IzQ1NUE2NDsiIGQ9Ik01My4zMzMsNTEySDEwLjY2N0M0Ljc3Niw1MTIsMCw1MDcuMjI0LDAsNTAxLjMzM3YtNDIuNjY3QzAsNDUyLjc3Niw0Ljc3Niw0NDgsMTAuNjY3LDQ0OGg0Mi42NjcNCgkJQzU5LjIyNCw0NDgsNjQsNDUyLjc3Niw2NCw0NTguNjY3djQyLjY2N0M2NCw1MDcuMjI0LDU5LjIyNCw1MTIsNTMuMzMzLDUxMnoiLz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojNDU1QTY0OyIgZD0iTTUwMS4zMzMsNTEyaC00Mi42NjdjLTUuODkxLDAtMTAuNjY3LTQuNzc2LTEwLjY2Ny0xMC42Njd2LTQyLjY2Nw0KCQljMC01Ljg5MSw0Ljc3Ni0xMC42NjcsMTAuNjY3LTEwLjY2N2g0Mi42NjdjNS44OTEsMCwxMC42NjcsNC43NzYsMTAuNjY3LDEwLjY2N3Y0Mi42NjdDNTEyLDUwNy4yMjQsNTA3LjIyNCw1MTIsNTAxLjMzMyw1MTJ6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" />
           </button>
@@ -41,7 +42,7 @@
           <option value="5">一實一虛</option>
         </select>
       </div>
-      <div class="pb-3" id="faceSelect"  style="display: none;">
+      <div class="pb-3" id="faceSelect" style="display: none;">
         <h5 class="card-title">面類型</h5>
         <select id="faceStyle" class="form-control">
           <option value="0">一般</option>
@@ -53,6 +54,9 @@
           <option value="6">面上有圖示</option>
         </select>
       </div>
+      <div class="pb-3">
+        <button class="btn btn-primary" onclick="Undo()">回到上一步</button>
+      </div>
     </div>
   </div>
   <!-- Popup -->
@@ -61,6 +65,7 @@
       <ul class="list-group">
         <li class="list-group-item" onclick="StartToDraw()">繪圖</li>
         <li class="list-group-item" onclick="CancelToDraw()">取消繪圖</li>
+        <li class="list-group-item" onclick="Undo()">回上一步</li>
       </ul>
     </div>
   </div>
@@ -74,6 +79,49 @@
   <script src="./faceStyle.js"></script>
   <script>
     /**
+     * 是否正在繪圖
+     */
+    var IsDrawing = false;
+    /**
+     * 已選取 Feature*/
+    var selectedFeature = null;
+    /**
+     * 已選取圖層*/
+    var selectedLayer = null;
+
+    /**
+     * 在地圖上選取物件/圖層
+     */
+    var selectClick = new ol.interaction.Select();
+
+    /**
+     * 修改 Feature (線段或面狀編輯回復上一步功能)
+     */
+    var previousCoordinatesOfSelected = {};
+    /**
+     * 被選取物件
+     */
+    var selectSource = new ol.Collection;
+    /**
+     * 被選取線段物件
+     */
+    lineStrokeSource.onchange = function () {
+      selectSource = lineStrokeSource.getFeaturesCollection()
+    }
+
+    /**
+     * 被選取物件框線加粗造型
+     */
+    var hoverStyle = new ol.style.Style({
+      stroke: new ol.style.Stroke({
+        color: 'red',
+        width: 3,
+      }),
+      fill: new ol.style.Fill({
+        color: 'black',
+      }),
+    });
+    /**
      * 與地圖互動功能 
      * the type of interaction with map
      */
@@ -83,6 +131,9 @@
       }),
       snap = new ol.interaction.Snap({
         source: lineStrokeSource
+      }),
+      modify = new ol.interaction.Modify({
+        features: selectSource
       });
 
     /**
@@ -153,6 +204,16 @@
     map.addOverlay(popup);
 
     /**
+     * 地圖加上選取 Feature 功能
+     */
+    map.addInteraction(selectClick);
+
+    /**
+     * 地圖加上允許編輯 Feature 功能
+     */
+    map.addInteraction(modify);
+
+    /**
      * 點擊滑鼠右鍵開啟選單
      * Hide the default menu and show the context menu
      */
@@ -171,6 +232,42 @@
     })
 
     /**
+     * 當點選 Feature/圖層
+     */
+    selectClick.on('select', function (e) {
+      selectedFeature = e.selected.find((value, index) => index == 0);
+      if (e.selected != null) {
+        e.selected.forEach(function (feature) {
+          selectSource.push(feature);
+        });
+      }
+
+      if (e.deselected != null) {
+        e.deselected.forEach(function (feature) {
+          selectSource.remove(feature);
+        });
+      }
+      if (!IsDrawing && selectedFeature != null) {
+        /**
+         * 地圖加上允許編輯 Feature 功能
+         */
+        map.addInteraction(modify);
+        selectedFeature.setStyle(hoverStyle);
+        selectedLayer = selectClick.getLayer(selectedFeature);
+      }
+    })
+
+    /**
+     * 線段或面狀編輯回復上一步功能
+     * 紀錄最後編輯狀態
+     */
+    modify.on('modifystart', function (evt) {
+      evt.features.forEach(function (feature) {
+        previousCoordinatesOfSelected[feature] = feature.getGeometry().getCoordinates();
+      });
+    });
+
+    /**
      * 變更繪圖類型
      * Change the type of geomery of drawing
      */
@@ -184,7 +281,7 @@
     /**
      * 切換編輯選單資訊
      * Change the editing panel
-    */
+     */
     function SwiftThePanel() {
       let lineSelection = document.getElementById('lineSelect');
       let faceSelection = document.getElementById('faceSelect');
@@ -212,6 +309,7 @@
      * Start to interacte with map
      */
     function AddInteractions() {
+      IsDrawing = true;
       switch (featureOfDrawing) {
         case typeOfGeometry.line:
           draw = new ol.interaction.Draw({
@@ -241,9 +339,11 @@
           });
           break;
       }
-
+      /**
+       * 地圖加上允許繪圖 Feature 功能
+       */
       map.addInteraction(draw);
-      map.addInteraction(snap);
+
       //#region 面上顯示圖示 add a image on the face
       draw.on('drawend', (evt) => {
         if (featureOfDrawing === typeOfGeometry.face && parseInt(faceStyle.value) == 6) {
@@ -286,6 +386,7 @@
      * 開始繪圖
      */
     function StartToDraw() {
+      IsDrawing = true;
       AddInteractions();
       popup.setPosition(undefined);
     }
@@ -294,13 +395,34 @@
      * 停止繪圖
      */
     function CancelToDraw() {
+      IsDrawing = false;
       RemoveInteractions();
       popup.setPosition(undefined);
     }
 
+    /**
+     * 停止與地圖互動
+     */
     function RemoveInteractions() {
       map.removeInteraction(draw);
-      map.removeInteraction(snap);
+      map.removeInteraction(modify);
+    }
+
+    /**
+     * 線段或面狀編輯回復上一步功能
+     */
+    function Undo() {
+      IsDrawing = false;
+      if (selectedFeature in previousCoordinatesOfSelected) {
+        // console.log('previousCoordinatesOfSelected[feature]', previousCoordinatesOfSelected[selectedFeature]);
+        selectedFeature.getGeometry().setCoordinates(
+          previousCoordinatesOfSelected[selectedFeature]
+        );
+
+        RemoveSelectedFeature(selectedSource);
+        selectSource.push(selectedFeature);
+      }
+      popup.setPosition(undefined);
     }
   </script>
 </body>

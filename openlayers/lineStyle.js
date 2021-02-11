@@ -1,4 +1,4 @@
-// 線-所有型式​
+// 線段不同樣式
 var lineStrokeSource = new ol.source.Vector();
 
 var lineStrokeStyle, lineStroke;

@@ -1,27 +1,27 @@
 /**
- * 面-所有型式
+ * 面狀不同樣式
  * 面狀圖層資料來源
 */
 var faceSource = new ol.source.Vector();
 /**
- * 面-所有型式
+ * 面狀不同樣式
  * 畫布
  */
 var canvas = document.createElement('canvas');
 /**
- * 面-所有型式
+ * 面狀不同樣式
  * 畫布內容
  */
 var context = canvas.getContext('2d');
 
 /** 
- * 面-所有型式
+ * 面狀不同樣式
  * 面上有圖示
 */
 var graphic = new ol.layer.Image();
 
 /** 
- * 面-所有型式
+ * 面狀不同樣式
  * 面上圖示來源
 */
 var imageTest = document.getElementById('imgSource');
