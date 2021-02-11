@@ -8,6 +8,8 @@ Date          | Version  | Item
 2021/02/07    |  1.2.0   |  the different styles of polygon
 2021/02/07    |  1.2.1   |  Update Readme.md
 2021/02/07    |  1.2.2   |  Update Readme.md
+2021/02/11    |  1.3.0   |  Undo lines and polygons
+2021/02/11    |  1.3.1   |  Remove the undo item of context menu
 
 # Medium
 
