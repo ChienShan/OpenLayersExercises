@@ -74,6 +74,7 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.1/math.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/6.3.0/turf.min.js"></script>
   <script src="./lineStyle.js"></script>
   <script src="./faceStyle.js"></script>
   <script>
@@ -120,6 +121,13 @@
         color: 'black',
       }),
     });
+
+    /**
+     * CoordinateListOfEachSegment
+     * 線段開頭與結尾經緯度座標
+     */
+    var lineArr = [];
+
     /**
      * 與地圖互動功能 
      * the type of interaction with map
@@ -345,6 +353,21 @@
 
       //#region 面上顯示圖示 add a image on the face
       draw.on('drawend', (evt) => {
+        //檢查線段自相交 check if LineString is self-interaction
+        if (featureOfDrawing === typeOfGeometry.line) {
+          let geoOfFeature = evt.feature.getGeometry();
+          let coordinateOfFeature = geoOfFeature.getCoordinates();
+          if (geoOfFeature == null || coordinateOfFeature == null) {
+            return;
+          }
+          let checkResult = CheckSelfIntersaction(geoOfFeature, coordinateOfFeature);
+          if (checkResult) {
+            alert('線段發生自相交！');
+          }
+
+          lineArr = [];
+        }
+
         if (featureOfDrawing === typeOfGeometry.face && parseInt(faceStyle.value) == 6) {
           let extent = evt.feature.getGeometry().getExtent();
           let center = ol.extent.getCenter(extent);
@@ -422,6 +445,61 @@
         selectSource.push(selectedFeature);
       }
       popup.setPosition(undefined);
+    }
+
+    /**
+     * 檢查線段是否自相交
+     * 
+     * @param geoOfFeature 線段
+     * @param coordinateOfFeature 線段座標
+     */
+    function CheckSelfIntersaction(geoOfFeature, coordinateOfFeature) {
+      let hash = {};
+      let result = false;
+      //雜湊二維陣列，為後續判斷相交之便
+      for (let i = 0; i < coordinateOfFeature.length; i++) {
+        hash[coordinateOfFeature[i]] = i;
+      }
+
+      //取得線段開頭與結尾座標，from 和 to 實際陣列值有問題，如果不用 JSON.stringify 無法取得正確座標
+      geoOfFeature.forEachSegment(function (from, to) {
+        PushLineSegmentCoordinate(from.slice(0), to.slice(0));
+      });
+
+      for (var i = 0; i < lineArr.length - 1; i++) {
+        for (var j = i + 1; j < lineArr.length; j++) {
+          //檢查兩條線是否有相交
+          let pointOfIntersection = CheckAreLinesIntersection(lineArr[i], lineArr[j]).features[0];
+          //檢查回傳相交的點
+          if (pointOfIntersection != null) {
+            var resultCoordinate = turf.getCoord(turf.getGeom(pointOfIntersection));
+          }
+          //如果相交的點非線段的開頭或結尾，才判斷線段存在相交
+          if (!hash.hasOwnProperty(resultCoordinate)) {
+            result = true;
+            break;
+          }
+        }
+      }
+
+      return result;
+    }
+
+    /**
+     * 取得線段開頭與結尾座標
+     */
+    function PushLineSegmentCoordinate(point1, point2) {
+      lineArr.push([point1, point2]);
+    }
+
+    /**
+     * 檢查兩線段是否相交
+     */
+    function CheckAreLinesIntersection(lineCoordinate1, lineCoordinate2) {
+      var line1 = turf.lineString([lineCoordinate1[0], lineCoordinate1[1]]);
+      var line2 = turf.lineString([lineCoordinate2[0], lineCoordinate2[1]]);
+      var intersects = turf.lineIntersect(line1, line2);
+      return intersects;
     }
   </script>
 </body>
